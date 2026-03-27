@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Printmaking | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">LETS GET COZY</div>
+    <div class="nav-buttons">
+        <a href="about.html"><button>About</button></a>
+        <a href="#buy"><button>Buy</button></a>
+        <a href="#book"><button>Book</button></a>
+    </div>
+</nav>
+
+<section class="splash">
+    <img src="images/molotov_bg.jpg" class="splash-img" alt="Studio Background">
+    <h1>"lets get cozy"</h1>
+    <p>A case study for the comfortably inclined</p>
+</section>
+
+<section class="gallery">
+    <div class="print-card"><img src="images/baby_g.jpeg"><p>New Year Baby</p></div>
+    <div class="print-card"><img src="images/sauna_g.jpeg"><p>Sauna Vibing</p></div>
+    <div class="print-card"><img src="images/deedee_g.jpeg"><p>Dee Dee</p></div>
+    <div class="print-card"><img src="images/poke_g.jpeg"><p>Pokemon Prototype</p></div>
+    <div class="print-card"><img src="images/bus_g.jpeg"><p>Bussin'!</p></div>
+    <div class="print-card"><img src="images/groovy_g.jpeg"><p>Plano Graffiti</p></div>
+</section>
+
+<section id="buy" class="form-section">
+    <h2>Purchase Prints</h2>
+    <form class="form-grid">
+        <select class="full-width">
+            <option>Select a Design...</option>
+            <option>New Year Baby</option>
+            <option>Sauna Vibing</option>
+            <option>Dee Dee</option>
+        </select>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email Address" class="full-width" required>
+        <textarea placeholder="Shipping Address & Special Instructions" class="full-width" rows="4"></textarea>
+        <button type="submit" class="submit-btn full-width">REQUEST PURCHASE</button>
+    </form>
+</section>
+
+<section id="book" class="form-section" style="background-color: var(--ink-black);">
+    <h2>Book Services</h2>
+    <form class="form-grid">
+        <input type="text" placeholder="Organization / Name" required>
+        <select>
+            <option>Service Type...</option>
+            <option>Custom Design</option>
+            <option>Printing Services</option>
+            <option>Consultation</option>
+        </select>
+        <textarea placeholder="Tell me about your project timeline and vision..." class="full-width" rows="6"></textarea>
+        <button type="submit" class="submit-btn full-width">SEND INQUIRY</button>
+    </form>
+</section>
+
+</body>
+</html>
