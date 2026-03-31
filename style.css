@@ -1,196 +1,388 @@
-/* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-
-@font-face {
-    font-family: 'GC Alio';
-    src: local('GC Alio'),
-         url('GCAlio.ttf') format('truetype'); /* Points directly to your root file */
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap; /* Ensures text shows up immediately while font loads */
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 :root {
-    --bg-color: #fcfaf5;      /* Bone */
-    --nav-bg: #f5f0e8;       /* Offset Bone */
-    --ink-black: #1a1a1a;    /* Carbon Black */
-    --accent-crimson: #990000; /* Rich Crimson */
-    --border-subtle: #e5dfd3;
+    --bg: #fcfaf5;
+    --ink: #1a1a1a;
+    --crimson: #990000;
+    --muted: #888;
 }
 
-body {
-    background-color: #fcfaf5; /* Hardcoded Bone */
-    color: #1a1a1a;            /* Hardcoded Ink Black */
-    font-family: 'Lato', sans-serif;
+* {
     margin: 0;
-    line-height: 1.7;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* NAVIGATION - NOW WITH GC ALIO */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--border-subtle);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-family: 'GC Alio', serif !important; /* Added !important to override any defaults */
-    font-size: 1.8rem;
-    color: var(--accent-crimson);
-}
-
-.nav-buttons button {
-    font-family: 'GC Alio', serif !important;
-    font-size: 0.85rem;
-    background: transparent;
-    border: 1px solid #1a1a1a; /* Hardcoded */
-    color: #1a1a1a;            /* Hardcoded */
-    padding: 8px 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.nav-buttons button:hover {
-    background: var(--accent-crimson);
-    border-color: var(--accent-crimson);
-    color: white;
-}
-
-/* SPLASH PAGE WITH IMAGE OVERLAY */
-.splash {
-    position: relative;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-.splash-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
-
-/* Dark overlay to ensure text contrast */
-.splash::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* 40% black tint */
-    z-index: -1;
-}
-
-.splash h1 {
-    font-family: 'GC Alio', serif;
-    font-size: 5rem;
-    color: white; /* White pops better over images */
-    margin: 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-.splash p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-/* GALLERY GRID - UPDATED PATHS IN HTML */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
-    padding: 80px 8%;
-}
-
-.print-card img {
-    width: 100%;
-    border: 1px solid var(--border-subtle);
-    background: white;
-    padding: 10px;
-    transition: 0.4s;
-}
-
-.print-card p {
-    font-family: 'GC Alio', serif; /* Design names in brand font */
-    margin-top: 15px;
-    color: var(--accent-crimson);
-}
-
-/* SMOOTH SCROLLING */
 html {
     scroll-behavior: smooth;
 }
 
-/* THE INVERTED FORM LOOK */
-.form-section {
-    padding: 100px 10%;
-    background-color: var(--accent-crimson); /* Crimson Background */
-    color: var(--bg-color); /* Bone Text */
-    border-top: 1px solid var(--ink-black);
-}
-
-.form-section h2 {
-    font-family: 'GC Alio', serif;
-    color: var(--bg-color); /* Bone headers on crimson */
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.form-grid {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* Spanning full width for textarea/submit */
-.full-width { grid-column: span 2; }
-
-.form-section input, 
-.form-section textarea, 
-.form-section select {
-    background: transparent;
-    border: 1px solid var(--bg-color);
-    color: var(--bg-color);
-    padding: 15px;
+body {
+    background: var(--bg);
+    color: var(--ink);
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 16px;
 }
 
-/* Change placeholder color to be visible on crimson */
-.form-section ::placeholder { color: rgba(252, 250, 245, 0.6); }
+nav {
+    padding: 40px 8%;
+}
 
-.form-section .submit-btn {
-    background: var(--bg-color);
-    color: var(--accent-crimson);
-    border: none;
-    font-family: 'GC Alio', serif;
+.logo {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crimson);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 8%;
+}
+
+.secret-ticket {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 55px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.3;
+    transition: all 0.3s;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.secret-ticket svg {
+    width: 100%;
+    height: auto;
+    color: #999;
+    transition: all 0.3s;
+}
+
+.secret-ticket:hover {
+    opacity: 1;
+}
+
+.secret-ticket:hover svg {
+    color: var(--crimson);
+    transform: rotate(-3deg) scale(1.15);
+}
+
+.activate {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 8%;
+}
+
+.ticket {
+    display: flex;
+    border: 1px dashed var(--crimson);
+    max-width: 520px;
+}
+
+.stub {
+    background: var(--crimson);
+    color: var(--bg);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.stub span {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.stub span:last-child {
     font-size: 1.2rem;
-    padding: 20px;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-.form-section .submit-btn:hover {
-    background: var(--ink-black);
-    color: white;
+.main {
+    padding: 40px;
+    flex: 1;
+}
+
+.eyebrow {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    margin-bottom: 16px;
+}
+
+.main h1 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.main > p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.perk-box {
+    background: #f5f0e8;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.perk-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+.perk-value {
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.main form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 12px 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.main input:focus {
+    border-color: var(--crimson);
+}
+
+.main button {
+    align-self: flex-start;
+    background: var(--crimson);
+    border: none;
+    color: var(--bg);
+    padding: 14px 36px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.3s;
+}
+
+.main button:hover {
+    opacity: 0.85;
+}
+
+.fine-print {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.back {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.back:hover {
+    color: var(--ink);
+}
+
+.about {
+    padding: 80px 8%;
+    max-width: 600px;
+}
+
+.about h1 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    margin-bottom: 40px;
+}
+
+.about .content p {
+    margin-bottom: 24px;
+    color: var(--ink);
+}
+
+.hero {
+    padding: 120px 8% 80px;
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 60px 40px;
+    padding: 60px 8% 120px;
+}
+
+.print-card img {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.print-card .meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+}
+
+.contact {
+    padding: 100px 8%;
+    border-top: 1px solid #e5dfd3;
+}
+
+.contact h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.contact a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--crimson);
+    padding-bottom: 2px;
+}
+
+.contact a:hover {
+    color: var(--crimson);
+}
+
+footer {
+    padding: 40px 8%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-top: 1px solid #e5dfd3;
+}
+
+.booking {
+    padding: 80px 8%;
+    max-width: 600px;
+    border-top: 1px solid #e5dfd3;
+}
+
+.booking h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    margin-bottom: 30px;
+}
+
+.booking form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.booking input,
+.booking select,
+.booking textarea {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 12px 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.booking input:focus,
+.booking select:focus,
+.booking textarea:focus {
+    border-color: var(--crimson);
+}
+
+.booking textarea {
+    resize: none;
+}
+
+.booking button {
+    align-self: flex-start;
+    background: none;
+    border: 1px solid var(--ink);
+    padding: 12px 32px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: all 0.3s;
+}
+
+.booking button:hover {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: var(--bg);
+}
+
+footer a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--ink);
 }
