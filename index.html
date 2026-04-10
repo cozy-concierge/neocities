@@ -34,6 +34,18 @@
             <text x="40" y="26" text-anchor="middle" font-size="9" fill="white" font-family="sans-serif" letter-spacing="1.5">NEWS</text>
         </svg>
     </a>
+    <a href="dogsitting.html" class="secret-ticket">
+        <svg viewBox="0 0 80 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8C2 4 5 2 8 2H72C75 2 78 4 78 8V22C78 23 78.5 23.5 79 24V22V8C79 3.5 75.5 0 71 0H9C4.5 0 1 3.5 1 8V37C1 41.5 4.5 45 9 45H71C75.5 45 79 41.5 79 37V24.5C79.5 23.5 79 23 79 22V8C79 4 76 2 73 2H8C5 2 2 5 2 8Z" fill="currentColor"/>
+            <path d="M1 30C1 30 3 32 1 34C-1 36 1 38 1 38V30Z" fill="currentColor"/>
+            <path d="M79 30C79 30 77 32 79 34C81 36 79 38 79 38V30Z" fill="currentColor"/>
+            <path d="M24 0C24 0 23 3 24 4C25 5 24 8 24 8V0Z" fill="currentColor"/>
+            <path d="M56 0C56 0 55 3 56 4C57 5 56 8 56 8V0Z" fill="currentColor"/>
+            <path d="M24 45C24 45 23 42 24 41C25 40 24 37 24 37V45Z" fill="currentColor"/>
+            <path d="M56 45C56 45 55 42 56 41C57 40 56 37 56 37V45Z" fill="currentColor"/>
+            <text x="40" y="26" text-anchor="middle" font-size="9" fill="white" font-family="sans-serif" letter-spacing="1.5">DOG</text>
+        </svg>
+    </a>
 </nav>
 
 <section class="hero">
@@ -86,6 +98,7 @@
             <option>Limited Run Shirt Print (my design)</option>
             <option>Party / Event Printing</option>
             <option>Custom Illustration + Print</option>
+            <option>I want to join a print party</option>
             <option>Consultation</option>
         </select>
         <div class="time-slots">
@@ -132,6 +145,18 @@
             if (r.ok) link.href = base + exts[1];
         });
     });
+    
+    var bookingForm = document.querySelector('.booking form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            var select = bookingForm.querySelector('select');
+            if (select.value === 'I want to join a print party') {
+                e.preventDefault();
+                // TODO: Update this URL when print party page exists
+                window.location.href = 'index.html#print-party';
+            }
+        });
+    }
 })();
 </script>
 </html>

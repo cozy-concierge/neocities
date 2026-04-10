@@ -79,6 +79,10 @@ nav .secret-ticket:nth-of-type(2) {
     top: 70px;
 }
 
+nav .secret-ticket:nth-of-type(3) {
+    top: 120px;
+}
+
 .activate {
     min-height: 70vh;
     display: flex;
@@ -499,4 +503,114 @@ footer a {
 
 footer a:hover {
     color: var(--ink);
+}
+
+.dogsitting {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 8%;
+}
+
+.dogsitting .ticket {
+    display: flex;
+    border: 1px dashed var(--crimson);
+    max-width: 520px;
+}
+
+.dogsitting .stub {
+    background: var(--crimson);
+    color: var(--bg);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.dogsitting .stub span {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.dogsitting .stub span:last-child {
+    font-size: 1.2rem;
+}
+
+.dogsitting .main {
+    padding: 40px;
+    flex: 1;
+}
+
+.dogsitting .eyebrow {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    margin-bottom: 16px;
+}
+
+.dogsitting .main h1 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.dogsitting .main > p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.dogsitting form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dogsitting input,
+.dogsitting textarea {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 12px 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.dogsitting input:focus,
+.dogsitting textarea:focus {
+    border-color: var(--crimson);
+}
+
+.dogsitting textarea {
+    resize: none;
+}
+
+.dogsitting button {
+    align-self: flex-start;
+    background: var(--crimson);
+    border: none;
+    color: var(--bg);
+    padding: 14px 36px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.3s;
+}
+
+.dogsitting button:hover {
+    opacity: 0.85;
 }
