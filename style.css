@@ -272,6 +272,8 @@ nav .secret-ticket:nth-of-type(3) {
 
 .print-card img {
     width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     display: block;
     margin-bottom: 16px;
 }
