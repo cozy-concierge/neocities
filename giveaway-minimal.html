@@ -23,6 +23,7 @@
             <div class="eyebrow">FREE PHONE WALLPAPER</div>
             <h1>Tell us your favorite coffee spot.</h1>
             <p>Enter your favorite coffee place to unlock a free Cozy Concierge phone wallpaper.</p>
+            <p class="hint">Hint: get them all!!</p>
             
             <form id="wallpaper-form">
                 <input type="text" name="coffee" placeholder="Favorite coffee place" required>
@@ -30,7 +31,7 @@
             </form>
             
             <div id="download-area" style="display:none;">
-                <a href="wallpaper.jpg" class="download-btn" download>Download Wallpaper</a>
+                <a id="download-link" href="images/wallpaper/wallpaper_01.jpg" class="download-btn" download>Download Wallpaper</a>
             </div>
             
             <p class="fine-print">One download per zipcode. No spam.</p>
@@ -49,7 +50,15 @@ document.getElementById('wallpaper-form').addEventListener('submit', function(e)
     e.preventDefault();
     var form = this;
     var coffee = form.querySelector('input[name="coffee"]').value;
-    // TODO: Send coffee place to backend for tracking
+    // Randomize wallpaper
+    var wallpapers = [
+        'wallpaper_01.jpg',
+        'wallpaper_02.jpg',
+        'wallpaper_03.jpg'
+    ];
+    var randomWallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
+    var downloadLink = document.getElementById('download-link');
+    downloadLink.href = 'images/wallpaper/' + randomWallpaper;
     form.style.display = 'none';
     document.getElementById('download-area').style.display = 'block';
 });

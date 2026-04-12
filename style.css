@@ -639,3 +639,11 @@ footer a:hover {
 .download-btn:hover {
     opacity: 0.85;
 }
+
+.hint {
+    font-size: 0.7rem;
+    color: var(--crimson);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
