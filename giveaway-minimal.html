@@ -25,7 +25,7 @@
             <p>Enter your zipcode to unlock a free Cozy Concierge phone wallpaper.</p>
             
             <form id="wallpaper-form">
-                <input type="text" name="zipcode" placeholder="Zipcode" pattern="[0-9]{5}" required>
+                <input type="text" name="coffee" placeholder="Favorite coffee place" required>
                 <button type="submit">Get Wallpaper</button>
             </form>
             
@@ -48,9 +48,8 @@
 document.getElementById('wallpaper-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = this;
-    var zipcode = form.querySelector('input[name="zipcode"]').value;
-    // TODO: Send zipcode to backend for tracking
-    // For now: show download
+    var coffee = form.querySelector('input[name="coffee"]').value;
+    // TODO: Send coffee place to backend for tracking
     form.style.display = 'none';
     document.getElementById('download-area').style.display = 'block';
 });
