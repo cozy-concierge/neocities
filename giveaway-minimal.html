@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claim Your Perk — Cozy Concierge</title>
+    <title>Free Wallpaper — Cozy Concierge</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,25 +16,24 @@
 <section class="activate">
     <div class="ticket">
         <div class="stub">
-            <span>PERK</span>
+            <span>FREE</span>
             <span>✦</span>
         </div>
         <div class="main">
-            <div class="eyebrow">LIMITED ACTIVATION</div>
-            <h1>You get something too.</h1>
-            <p>Enter your zipcode to unlock a special perk at our next event. One entry per person.</p>
+            <div class="eyebrow">FREE PHONE WALLPAPER</div>
+            <h1>Post your zipcode to download.</h1>
+            <p>Enter your zipcode to unlock a free Cozy Concierge phone wallpaper.</p>
             
-            <div class="perk-box">
-                <span class="perk-label">YOUR PERK</span>
-                <span class="perk-value">Free print with any purchase</span>
-            </div>
-            
-            <form>
-                <input type="text" placeholder="Zipcode" pattern="[0-9]{5}" required>
-                <button type="submit">Claim Perk</button>
+            <form id="wallpaper-form">
+                <input type="text" name="zipcode" placeholder="Zipcode" pattern="[0-9]{5}" required>
+                <button type="submit">Get Wallpaper</button>
             </form>
             
-            <p class="fine-print">Perk valid at next Cozy Concierge event. While supplies last.</p>
+            <div id="download-area" style="display:none;">
+                <a href="wallpaper.jpg" class="download-btn" download>Download Wallpaper</a>
+            </div>
+            
+            <p class="fine-print">One download per zipcode. No spam.</p>
         </div>
     </div>
 </section>
@@ -44,6 +43,18 @@
     <span>Cozy Concierge</span>
     <span>2026</span>
 </footer>
+
+<script>
+document.getElementById('wallpaper-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var zipcode = form.querySelector('input[name="zipcode"]').value;
+    // TODO: Send zipcode to backend for tracking
+    // For now: show download
+    form.style.display = 'none';
+    document.getElementById('download-area').style.display = 'block';
+});
+</script>
 
 </body>
 </html>

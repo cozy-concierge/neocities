@@ -621,3 +621,21 @@ footer a:hover {
 .dogsitting button:hover {
     opacity: 0.85;
 }
+
+.download-btn {
+    display: inline-block;
+    background: var(--crimson);
+    color: var(--bg);
+    padding: 14px 36px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: opacity 0.3s;
+}
+
+.download-btn:hover {
+    opacity: 0.85;
+}
