@@ -455,7 +455,14 @@ footer {
 .newsletter > p {
     color: var(--muted);
     font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+.newsletter-sub {
+    font-size: 0.85rem;
+    color: var(--ink);
     margin-bottom: 24px;
+    font-style: italic;
 }
 
 .newsletter form {
