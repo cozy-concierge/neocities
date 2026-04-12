@@ -92,16 +92,15 @@
     <form>
         <input type="text" placeholder="Name" required>
         <input type="email" placeholder="Email" required>
-        <select required>
+        <select id="service-select" required>
             <option value="">What are you looking for?</option>
-            <option>Boutique Shirt Printing (your design)</option>
-            <option>Limited Run Shirt Print (my design)</option>
+            <option>Boutique Shirt Printing</option>
             <option>Party / Event Printing</option>
-            <option>Custom Illustration + Print</option>
+            <option>Custom Design</option>
             <option>I want to join a print party</option>
             <option>Consultation</option>
         </select>
-        <div class="time-slots">
+        <div class="time-slots" id="time-slots">
             <span class="time-label">Preferred Time (12–5pm)</span>
             <div class="slots">
                 <label><input type="radio" name="time" value="12pm"><span>12pm</span></label>
@@ -145,6 +144,18 @@
             if (r.ok) link.href = base + exts[1];
         });
     });
+    
+    var timeSlots = document.getElementById('time-slots');
+    if (timeSlots) {
+        timeSlots.innerHTML = '<span class="time-label">Preferred Time (12–5pm)</span><div class="slots"><label><input type="radio" name="time" value="12pm"><span>12pm</span></label><label><input type="radio" name="time" value="1pm"><span>1pm</span></label><label><input type="radio" name="time" value="2pm"><span>2pm</span></label><label><input type="radio" name="time" value="3pm"><span>3pm</span></label><label><input type="radio" name="time" value="4pm"><span>4pm</span></label></div>';
+        
+        var select = document.getElementById('service-select');
+        function toggleTime() {
+            timeSlots.style.display = (select.value === 'Consultation') ? 'block' : 'none';
+        }
+        select.addEventListener('change', toggleTime);
+        toggleTime();
+    }
     
     var bookingForm = document.querySelector('.booking form');
     if (bookingForm) {
