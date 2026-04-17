@@ -48,6 +48,8 @@
     </a>
 </nav>
 
+<div class="splash-bg" id="splash-bg"></div>
+
 <section class="hero">
     <h1>lets get cozy</h1>
     <p>Boutique printmaking for the comfortably inclined</p>
@@ -134,6 +136,15 @@
 </body>
 <script>
 (function() {
+    // Randomize splash background
+    var splashImages = [
+        'images/molotov_bg.jpg',
+        'images/Instigatress_bg.jpg',
+        'images/ring_bg.jpg'
+    ];
+    var randomSplash = splashImages[Math.floor(Math.random() * splashImages.length)];
+    document.getElementById('splash-bg').style.backgroundImage = 'url(' + randomSplash + ')';
+    
     var link = document.querySelector('[data-newsletter-link]');
     var base = 'newsletter';
     var exts = ['.html', '.pdf'];
