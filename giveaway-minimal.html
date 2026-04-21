@@ -25,16 +25,15 @@
             <p>Enter your favorite coffee place to unlock a free Cozy Concierge phone wallpaper.</p>
             <p class="hint">Hint: get them all!!</p>
             
-            <form id="wallpaper-form">
-                <input type="text" name="coffee" placeholder="Favorite coffee place" required>
+            <form id="wallpaper-form" action="https://formspree.io/f/mgorlyqa" method="POST">
+                <input type="text" name="coffee" placeholder="Favorite coffee place (optional)">
+                <input type="email" name="email" placeholder="Email (optional)">
                 <button type="submit">Get Wallpaper</button>
             </form>
             
             <div id="download-area" style="display:none;">
-                <a id="download-link" href="images/wallpaper/wallpaper_01.jpg" class="download-btn" download>Download Wallpaper</a>
+                <a id="download-link" href="#" class="download-btn" download>Download Wallpaper</a>
             </div>
-            
-            <p class="fine-print"></p>
         </div>
     </div>
 </section>
@@ -46,21 +45,15 @@
 </footer>
 
 <script>
+var wallpapers = ['wallpaper_01.jpg', 'wallpaper_02.jpg', 'wallpaper_03.jpg', 'wallpaper_04.jpg', 'wallpaper_05.jpg'];
+var randomWallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
+document.getElementById('download-link').href = 'images/wallpaper/' + randomWallpaper;
+
 document.getElementById('wallpaper-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var form = this;
-    var coffee = form.querySelector('input[name="coffee"]').value;
-    // Randomize wallpaper
-    var wallpapers = [
-        'wallpaper_01.jpg',
-        'wallpaper_02.jpg',
-        'wallpaper_03.jpg'
-    ];
-    var randomWallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
-    var downloadLink = document.getElementById('download-link');
-    downloadLink.href = 'images/wallpaper/' + randomWallpaper;
-    form.style.display = 'none';
-    document.getElementById('download-area').style.display = 'block';
+    var downloadArea = document.getElementById('download-area');
+    downloadArea.style.display = 'block';
+    document.querySelector('.hint').style.display = 'none';
+    e.target.querySelector('button').textContent = 'Submitted!';
 });
 </script>
 
