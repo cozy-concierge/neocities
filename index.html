@@ -91,10 +91,10 @@
 <section class="booking">
     <h2>Book a Session</h2>
     <p class="booking-desc">Schedule a one-on-one printmaking consultation or custom design session. Sessions are held in-person in Dallas, TX.</p>
-    <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <select id="service-select" required>
+    <form id="booking-form" action="https://formspree.io/f/mgorlyqa" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select id="service-select" name="service" required>
             <option value="">What are you looking for?</option>
             <option>Boutique Shirt Printing</option>
             <option>Party / Event Printing</option>
@@ -103,16 +103,17 @@
             <option>Consultation</option>
         </select>
         <div class="time-slots" id="time-slots">
+            <input type="hidden" name="preferred_time" id="preferred-time">
             <span class="time-label">Preferred Time (12–5pm)</span>
             <div class="slots">
-                <label><input type="radio" name="time" value="12pm"><span>12pm</span></label>
-                <label><input type="radio" name="time" value="1pm"><span>1pm</span></label>
-                <label><input type="radio" name="time" value="2pm"><span>2pm</span></label>
-                <label><input type="radio" name="time" value="3pm"><span>3pm</span></label>
-                <label><input type="radio" name="time" value="4pm"><span>4pm</span></label>
+                <label><input type="radio" name="time-slot" value="12pm"><span>12pm</span></label>
+                <label><input type="radio" name="time-slot" value="1pm"><span>1pm</span></label>
+                <label><input type="radio" name="time-slot" value="2pm"><span>2pm</span></label>
+                <label><input type="radio" name="time-slot" value="3pm"><span>3pm</span></label>
+                <label><input type="radio" name="time-slot" value="4pm"><span>4pm</span></label>
             </div>
         </div>
-        <textarea placeholder="Tell me about your project..." rows="4"></textarea>
+        <textarea name="message" placeholder="Tell me about your project..." rows="4"></textarea>
         <button type="submit">Request Session</button>
     </form>
 </section>
@@ -159,27 +160,29 @@
     
     var timeSlots = document.getElementById('time-slots');
     if (timeSlots) {
-        timeSlots.innerHTML = '<span class="time-label">Preferred Time (12–5pm)</span><div class="slots"><label><input type="radio" name="time" value="12pm"><span>12pm</span></label><label><input type="radio" name="time" value="1pm"><span>1pm</span></label><label><input type="radio" name="time" value="2pm"><span>2pm</span></label><label><input type="radio" name="time" value="3pm"><span>3pm</span></label><label><input type="radio" name="time" value="4pm"><span>4pm</span></label></div>';
+        timeSlots.innerHTML = '<input type="hidden" name="preferred_time" id="preferred-time"><span class="time-label">Preferred Time (12–5pm)</span><div class="slots"><label><input type="radio" name="time-slot" value="12pm"><span>12pm</span></label><label><input type="radio" name="time-slot" value="1pm"><span>1pm</span></label><label><input type="radio" name="time-slot" value="2pm"><span>2pm</span></label><label><input type="radio" name="time-slot" value="3pm"><span>3pm</span></label><label><input type="radio" name="time-slot" value="4pm"><span>4pm</span></label></div>';
         
         var select = document.getElementById('service-select');
         function toggleTime() {
             timeSlots.style.display = (select.value === 'Consultation') ? 'block' : 'none';
+            if (select.value === 'Consultation') {
+                var selectedTime = document.querySelector('input[name="time"]:checked');
+                if (selectedTime) {
+                    document.getElementById('preferred-time').value = selectedTime.value;
+                }
+            }
         }
         select.addEventListener('change', toggleTime);
+        
+        document.querySelector('.slots').addEventListener('change', function(e) {
+            if (e.target.name === 'time-slot') {
+                document.getElementById('preferred-time').value = e.target.value;
+            }
+        });
+        
         toggleTime();
     }
     
-    var bookingForm = document.querySelector('.booking form');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            var select = bookingForm.querySelector('select');
-            if (select.value === 'I want to join a print party') {
-                e.preventDefault();
-                // TODO: Update this URL when print party page exists
-                window.location.href = 'index.html#print-party';
-            }
-        });
-    }
-})();
+    })();
 </script>
 </html>
