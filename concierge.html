@@ -24,18 +24,18 @@
             <h1>Need a hand with something?</h1>
             <p>From pet sitting to errands, I'm here to help make your life a little easier.</p>
             
-            <form>
-                <select required>
+            <form action="https://formspree.io/f/xrerakvy" method="POST">
+                <select name="service-type" required>
                     <option value="">What do you need?</option>
                     <option>Pet Sitting</option>
                     <option>Errands / Shopping</option>
                     <option>House Sitting</option>
                     <option>Other</option>
                 </select>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="text" placeholder="Dates / Details" onfocus="this.type='date'" onblur="this.type='text'">
-                <textarea placeholder="Tell me more..." rows="3"></textarea>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="dates" placeholder="Dates / Details" onfocus="this.type='date'" onblur="this.type='text'">
+                <textarea name="message" placeholder="Tell me more..." rows="3"></textarea>
                 <button type="submit">Request Service</button>
             </form>
         </div>
