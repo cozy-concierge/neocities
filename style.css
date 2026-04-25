@@ -705,21 +705,20 @@ footer a:hover {
     position: absolute;
     left: 50%;
     top: 10%;
-    width: 120px;
-    animation: bounce 2s ease-in-out infinite;
+    width: 250px;
+    animation: float 4s ease-in-out infinite;
 }
 
 .bouncing-ball img {
     width: 100%;
-    border-radius: 50%;
-    border: 2px solid var(--crimson);
+    display: block;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    25% { transform: translateY(30vh) translateX(20px); }
-    50% { transform: translateY(0) translateX(50px); }
-    75% { transform: translateY(15vh) translateX(-20px); }
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(-50px) rotate(-5deg); }
+    25% { transform: translateY(20vh) translateX(0) rotate(0deg); }
+    50% { transform: translateY(40vh) translateX(-30px) rotate(5deg); }
+    75% { transform: translateY(20vh) translateX(-10px) rotate(0deg); }
 }
 
 .intro-hint {
