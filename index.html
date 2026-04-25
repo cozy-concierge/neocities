@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozy Concierge</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="intro.css">
 </head>
 <body>
+
+<div id="intro" class="intro-screen">
+    <div class="intro-content">
+        <h1 class="intro-tagline">lets get cozy</h1>
+        <div class="bouncing-ball">
+            <img src="images/molotov_bg.jpg" alt="Bouncing">
+        </div>
+    </div>
+    <div class="intro-hint">click anywhere to enter</div>
+</div>
 
 <nav>
     <div class="logo">Cozy Concierge</div>
@@ -48,6 +59,15 @@
     </a>
 </nav>
 
+<div class="ticker-wrap">
+    <div class="ticker">
+        <span>NEXT ACTIVATION: </span>
+        <span class="ticker-content">Join us at the next print party • </span>
+        <span class="ticker-content">Get your free wallpaper • </span>
+        <span class="ticker-content">Follow on Instagram for updates • </span>
+    </div>
+</div>
+
 <div class="splash-bg" id="splash-bg"></div>
 
 <section class="hero">
@@ -56,30 +76,12 @@
 </section>
 
 <section class="gallery">
-    <div class="print-card">
-        <img src="images/baby_g.jpeg">
-        <div class="meta">New Year Baby</div>
-    </div>
-    <div class="print-card">
-        <img src="images/sauna_g.jpeg">
-        <div class="meta">Sauna Vibing</div>
-    </div>
-    <div class="print-card">
-        <img src="images/deedee_g.jpeg">
-        <div class="meta">Dee Dee</div>
-    </div>
-    <div class="print-card">
-        <img src="images/poke_g.jpeg">
-        <div class="meta">Pokemon Prototype</div>
-    </div>
-    <div class="print-card">
-        <img src="images/bus_g.jpeg">
-        <div class="meta">Bussin'</div>
-    </div>
-    <div class="print-card">
-        <img src="images/groovy_g.jpeg">
-        <div class="meta">Plano Graffiti</div>
-    </div>
+    <div class="print-card"><img src="images/baby_g.jpeg"><div class="meta">New Year Baby</div></div>
+    <div class="print-card"><img src="images/sauna_g.jpeg"><div class="meta">Sauna Vibing</div></div>
+    <div class="print-card"><img src="images/deedee_g.jpeg"><div class="meta">Dee Dee</div></div>
+    <div class="print-card"><img src="images/poke_g.jpeg"><div class="meta">Pokemon Prototype</div></div>
+    <div class="print-card"><img src="images/bus_g.jpeg"><div class="meta">Bussin'</div></div>
+    <div class="print-card"><img src="images/groovy_g.jpeg"><div class="meta">Plano Graffiti</div></div>
 </section>
 
 <section class="contact">
@@ -134,18 +136,13 @@
     <span>2026</span>
 </footer>
 
-</body>
 <script>
 (function() {
-    // Randomize splash background
-    var splashImages = [
-        'images/molotov_bg.jpg',
-        'images/Instigatress_bg.jpg',
-        'images/ring_bg.jpg'
-    ];
-    var randomSplash = splashImages[Math.floor(Math.random() * splashImages.length)];
-    document.getElementById('splash-bg').style.backgroundImage = 'url(' + randomSplash + ')';
-    
+    document.getElementById('intro').addEventListener('click', function() {
+        this.style.opacity = '0';
+        setTimeout(() => { this.style.display = 'none'; }, 500);
+    });
+
     var link = document.querySelector('[data-newsletter-link]');
     var base = 'newsletter';
     var exts = ['.html', '.pdf'];
@@ -157,7 +154,7 @@
             if (r.ok) link.href = base + exts[1];
         });
     });
-    
+
     var timeSlots = document.getElementById('time-slots');
     if (timeSlots) {
         timeSlots.innerHTML = '<input type="hidden" name="preferred_time" id="preferred-time"><span class="time-label">Preferred Time (12–5pm)</span><div class="slots"><label><input type="radio" name="time-slot" value="12pm"><span>12pm</span></label><label><input type="radio" name="time-slot" value="1pm"><span>1pm</span></label><label><input type="radio" name="time-slot" value="2pm"><span>2pm</span></label><label><input type="radio" name="time-slot" value="3pm"><span>3pm</span></label><label><input type="radio" name="time-slot" value="4pm"><span>4pm</span></label></div>';
@@ -166,7 +163,7 @@
         function toggleTime() {
             timeSlots.style.display = (select.value === 'Consultation') ? 'block' : 'none';
             if (select.value === 'Consultation') {
-                var selectedTime = document.querySelector('input[name="time"]:checked');
+                var selectedTime = document.querySelector('input[name="time-slot"]:checked');
                 if (selectedTime) {
                     document.getElementById('preferred-time').value = selectedTime.value;
                 }
@@ -182,7 +179,16 @@
         
         toggleTime();
     }
-    
-    })();
+
+    var splashImages = [
+        'images/molotov_bg.jpg',
+        'images/Instigatress_bg.jpg',
+        'images/ring_bg.jpg'
+    ];
+    var randomSplash = splashImages[Math.floor(Math.random() * splashImages.length)];
+    document.getElementById('splash-bg').style.backgroundImage = 'url(' + randomSplash + ')';
+})();
 </script>
+
+</body>
 </html>
