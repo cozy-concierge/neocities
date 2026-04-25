@@ -62,8 +62,8 @@
     <div class="ticker">
         <span>NEXT ACTIVATION: </span>
         <span class="ticker-content">Join us at the next print party • </span>
-        <span class="ticker-content">Get your free wallpaper • </span>
-        <span class="ticker-content">Follow on Instagram for updates • </span>
+        <span class="ticker-content">Halcyon Lower Greenville, May 15, 2026 4:30pm • </span>
+        <span class="ticker-content">Come say hi • </span>
     </div>
 </div>
 
@@ -141,6 +141,22 @@
         this.style.opacity = '0';
         setTimeout(() => { this.style.display = 'none'; }, 500);
     });
+    
+    var tagline = document.querySelector('.intro-tagline');
+    var floatingImg = document.querySelector('.bouncing-ball');
+    
+    function checkCollision() {
+        var tagRect = tagline.getBoundingClientRect();
+        var imgRect = floatingImg.getBoundingClientRect();
+        
+        if (imgRect.right > tagRect.left && imgRect.left < tagRect.right) {
+            tagline.style.transform = 'translateX(80px)';
+        } else {
+            tagline.style.transform = 'translateX(0)';
+        }
+        requestAnimationFrame(checkCollision);
+    }
+    checkCollision();
 
     var link = document.querySelector('[data-newsletter-link]');
     var base = 'newsletter';
