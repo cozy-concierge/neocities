@@ -671,6 +671,14 @@ footer a:hover {
     padding: 16px 0;
 }
 
+.hint {
+    font-size: 0.7rem;
+    color: var(--crimson);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
 .intro-screen {
     position: fixed;
     top: 0;
