@@ -76,15 +76,21 @@ nav {
 }
 
 nav .secret-ticket:nth-of-type(2) {
-    top: 20px;
-    left: 20px;
-    right: auto;
+    top: 60px;
+    left: auto;
+    right: 20px;
 }
 
 nav .secret-ticket:nth-of-type(3) {
-    top: 20px;
-    left: 80px;
-    right: auto;
+    top: 100px;
+    left: auto;
+    right: 20px;
+}
+
+nav .secret-ticket:nth-of-type(4) {
+    top: 140px;
+    left: auto;
+    right: 20px;
 }
 
 .activate {
@@ -708,23 +714,43 @@ footer a:hover {
 
 .bouncing-ball {
     position: absolute;
-    left: -300px;
-    top: 40%;
-    width: 250px;
-    animation: moveAcross 8s linear infinite;
+    left: -400px;
+    top: 35%;
+    width: 280px;
+    animation: elegant-drift 12s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 
 .bouncing-ball img {
     width: 100%;
     display: block;
+    filter: drop-shadow(5px 10px 15px rgba(0,0,0,0.15));
 }
 
-@keyframes moveAcross {
-    0% { left: -300px; transform: translateY(0) rotate(0deg); }
-    25% { left: 0vw; transform: translateY(-20px) rotate(5deg); }
-    50% { left: 30vw; transform: translateY(0) rotate(0deg); }
-    75% { left: 60vw; transform: translateY(15px) rotate(-3deg); }
-    100% { left: 110vw; transform: translateY(0) rotate(0deg); }
+@keyframes elegant-drift {
+    0% { 
+        left: -400px; 
+        transform: translateY(0) rotate(-8deg) scale(0.9); 
+        opacity: 0.3;
+    }
+    10% {
+        opacity: 1;
+    }
+    40% { 
+        left: 20vw; 
+        transform: translateY(-30px) rotate(3deg) scale(1);
+    }
+    60% { 
+        left: 45vw; 
+        transform: translateY(10px) rotate(-2deg) scale(0.95);
+    }
+    80% { 
+        left: 70vw; 
+        transform: translateY(-15px) rotate(5deg) scale(1);
+    }
+    100% { 
+        left: 120vw; 
+        transform: translateY(0) rotate(0deg) scale(0.9); 
+    }
 }
 
 .intro-hint {
