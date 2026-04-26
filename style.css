@@ -730,8 +730,8 @@ footer a:hover {
 .bouncing-ball {
     position: absolute;
     left: -400px;
-    top: 18%;
-    width: 105px;
+    top: 22%;
+    width: 215px;
     animation: elegant-drift 12s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 
