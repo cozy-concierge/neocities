@@ -64,8 +64,8 @@
 
 <div class="ticker-wrap">
     <div class="ticker">
-        <span class="ticker-content">NEXT ACTIVATION: Join us at the next print party • Halcyon Lower Greenville • May 15, 2026 • 4:30pm • Come say hi</span>
-        <span class="ticker-content">NEXT ACTIVATION: Join us at the next print party • Halcyon Lower Greenville • May 15, 2026 • 4:30pm • Come say hi</span>
+        <span class="ticker-content">NEXT ACTIVATION: Halcyon Lower Greenville • May 15, 2026 • 4:30pm • Come say hi • Get your free wallpaper • Follow on Instagram</span>
+        <span class="ticker-content">NEXT ACTIVATION: Halcyon Lower Greenville • May 15, 2026 • 4:30pm • Come say hi • Get your free wallpaper • Follow on Instagram</span>
     </div>
 </div>
 
@@ -150,14 +150,20 @@
     function checkCollision() {
         var floatingImg = document.querySelector('.bouncing-ball');
         var imgRect = floatingImg.getBoundingClientRect();
+        var imgCenter = imgRect.left + imgRect.width / 2;
         
         var chars = document.querySelectorAll('.intro-tagline span');
-        chars.forEach(function(char) {
+        chars.forEach(function(char, i) {
             var charRect = char.getBoundingClientRect();
-            if (imgRect.right > charRect.left && imgRect.left < charRect.right) {
-                char.style.transform = 'translateX(40px)';
+            var charCenter = charRect.left + charRect.width / 2;
+            var distance = Math.abs(imgCenter - charCenter);
+            
+            if (distance < 80) {
+                char.style.transform = 'translateX(50px)';
+                char.style.color = 'var(--crimson)';
             } else {
                 char.style.transform = 'translateX(0)';
+                char.style.color = '';
             }
         });
         requestAnimationFrame(checkCollision);
