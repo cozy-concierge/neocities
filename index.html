@@ -145,18 +145,21 @@
         setTimeout(() => { this.style.display = 'none'; }, 500);
     });
     
-    var tagline = document.querySelector('.intro-tagline');
     var floatingImg = document.querySelector('.bouncing-ball');
     
     function checkCollision() {
-        var tagRect = tagline.getBoundingClientRect();
+        var floatingImg = document.querySelector('.bouncing-ball');
         var imgRect = floatingImg.getBoundingClientRect();
         
-        if (imgRect.right > tagRect.left && imgRect.left < tagRect.right) {
-            tagline.style.transform = 'translateX(80px)';
-        } else {
-            tagline.style.transform = 'translateX(0)';
-        }
+        var chars = document.querySelectorAll('.intro-tagline span');
+        chars.forEach(function(char) {
+            var charRect = char.getBoundingClientRect();
+            if (imgRect.right > charRect.left && imgRect.left < charRect.right) {
+                char.style.transform = 'translateX(40px)';
+            } else {
+                char.style.transform = 'translateX(0)';
+            }
+        });
         requestAnimationFrame(checkCollision);
     }
     checkCollision();
