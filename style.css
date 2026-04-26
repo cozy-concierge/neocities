@@ -740,27 +740,35 @@ footer a:hover {
 
 .ticker-wrap {
     width: 100%;
-    background: #7a0000;
+    background-color: #7a0000;
     overflow: hidden;
     padding: 8px 0;
 }
 
 .ticker {
-    display: inline-block;
-    white-space: nowrap;
-    animation: ticker-scroll 20s linear infinite;
-    color: white;
+    display: flex;
+    width: 200%;
+    animation: ticker-scroll 25s linear infinite;
+    color: #ffffff;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    background-color: #7a0000;
 }
 
-.ticker span {
-    display: inline-block;
-    padding-right: 50px;
+.ticker-content {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ticker-content::after {
+    content: '•';
+    margin-right: 40px;
 }
 
 @keyframes ticker-scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
