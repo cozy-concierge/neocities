@@ -118,7 +118,7 @@
         </div>
         <textarea name="message" placeholder="Tell me about your project..." rows="4"></textarea>
         <button type="submit" class="submit-btn">Request Session</button>
-        <p class="form-success" style="display:none;">Thanks! I'll be in touch soon.</p>
+        <p class="form-success" style="display:none;">submitted</p>
     </form>
 </section>
 
@@ -173,10 +173,10 @@
                 body: new FormData(bookingForm),
                 headers: { 'Accept': 'application/json' }
             }).then(function(response) {
-                btn.style.display = 'none';
-                successMsg.style.display = 'block';
+                btn.textContent = 'submitted';
+                btn.style.background = 'var(--crimson)';
             }).catch(function() {
-                btn.textContent = 'Error - try again';
+                btn.textContent = 'error';
             });
         });
     }

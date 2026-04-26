@@ -24,7 +24,7 @@
             <h1>Need a hand with something?</h1>
             <p>From pet sitting to errands, I'm here to help make your life a little easier.</p>
             
-            <form action="https://formspree.io/f/xrerakvy" method="POST">
+            <form action="https://formspree.io/f/xrerakvy" method="POST" onsubmit="setTimeout(function(){document.querySelector('.dogsitting button').textContent='submitted';document.querySelector('.dogsitting button').disabled=true;},100)">
                 <select name="service-type" required>
                     <option value="">What do you need?</option>
                     <option>Pet Sitting</option>
@@ -37,7 +37,7 @@
                 <input type="text" name="dates" placeholder="Dates / Details" onfocus="this.type='date'" onblur="this.type='text'">
                 <textarea name="message" placeholder="Tell me more..." rows="3"></textarea>
                 <button type="submit" class="submit-btn">Request Service</button>
-                <p class="form-success" style="display:none;">Thanks! I'll be in touch soon.</p>
+                <p class="form-success" style="display:none;">submitted</p>
             </form>
         </div>
     </div>
