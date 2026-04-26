@@ -76,11 +76,15 @@ nav {
 }
 
 nav .secret-ticket:nth-of-type(2) {
-    top: 70px;
+    top: 20px;
+    left: 20px;
+    right: auto;
 }
 
 nav .secret-ticket:nth-of-type(3) {
-    top: 120px;
+    top: 20px;
+    left: 80px;
+    right: auto;
 }
 
 .activate {
