@@ -665,12 +665,10 @@ footer a:hover {
     opacity: 0.85;
 }
 
-.hint {
-    font-size: 0.7rem;
+.form-success {
     color: var(--crimson);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 8px;
+    font-size: 0.9rem;
+    padding: 16px 0;
 }
 
 .intro-screen {
@@ -712,11 +710,23 @@ footer a:hover {
     transition: transform 0.3s ease;
 }
 
+.intro-tagline span {
+    display: inline-block;
+    animation: char-wiggle 3s ease-in-out infinite;
+    animation-delay: calc(var(--char-index, 0) * 0.1s);
+}
+
+@keyframes char-wiggle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(-2deg); }
+    75% { transform: translateY(2px) rotate(1deg); }
+}
+
 .bouncing-ball {
     position: absolute;
     left: -400px;
-    top: 35%;
-    width: 280px;
+    top: 25%;
+    width: 420px;
     animation: elegant-drift 12s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 

@@ -10,7 +10,11 @@
 
 <div id="intro" class="intro-screen">
     <div class="intro-content">
-        <h1 class="intro-tagline">lets get cozy</h1>
+        <h1 class="intro-tagline">
+        <span style="--char-index: 0">l</span><span style="--char-index: 1">e</span><span style="--char-index: 2">t</span><span style="--char-index: 3">'</span><span style="--char-index: 4">s</span><span style="--char-index: 5"> </span>
+        <span style="--char-index: 6">g</span><span style="--char-index: 7">e</span><span style="--char-index: 8">t</span><span style="--char-index: 9"> </span>
+        <span style="--char-index: 10">c</span><span style="--char-index: 11">o</span><span style="--char-index: 12">z</span><span style="--char-index: 13">y</span>
+    </h1>
         <div class="bouncing-ball">
             <img src="images/sauna_g.jpeg" alt="Floating">
         </div>
@@ -113,7 +117,8 @@
             </div>
         </div>
         <textarea name="message" placeholder="Tell me about your project..." rows="4"></textarea>
-        <button type="submit">Request Session</button>
+        <button type="submit" class="submit-btn">Request Session</button>
+        <p class="form-success" style="display:none;">Thanks! I'll be in touch soon.</p>
     </form>
 </section>
 
@@ -155,6 +160,26 @@
         requestAnimationFrame(checkCollision);
     }
     checkCollision();
+    
+    var bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = bookingForm.querySelector('.submit-btn');
+            var successMsg = bookingForm.querySelector('.form-success');
+            btn.textContent = 'Sending...';
+            fetch(bookingForm.action, {
+                method: 'POST',
+                body: new FormData(bookingForm),
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                btn.style.display = 'none';
+                successMsg.style.display = 'block';
+            }).catch(function() {
+                btn.textContent = 'Error - try again';
+            });
+        });
+    }
 
     var link = document.querySelector('[data-newsletter-link]');
     var base = 'newsletter';
